@@ -159,8 +159,5 @@
 	],
 	"profile": {
 		"name": "MaksimMarkevichCoherent"
-	},
-	"accessToken": {
-		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im1ha3NpbSIsImlhdCI6MTUxNjIzOTAyMn0.l2cD_MXWcXpoQyLMdbaOoiQ4pCOxIYcBAtRVz2u7uqk"
 	}
 }
