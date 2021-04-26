@@ -1,34 +1,170 @@
 {
-	"posts": [
+	"workouts": [
 		{
-		  "id": 1,
-		  "title": "Post 1"
-		},
-		{
-		  "id": 2,
-		  "title": "Post 2"
-		},
-		{
-		  "id": 3,
-		  "title": "Post 3"
+			"new":[
+				{
+					"id": 0,
+					"title": "Push ups",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445307/Workouts/push_ups_ti60rd.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 15
+						}
+					],
+					"level": "Beginner"
+				},
+				{
+					"id": 1,
+					"title": "Squats",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 70
+						}
+					],
+					"level": "Intermediate"
+				},
+				{
+					"id": 2,
+					"title": "Stretching/Squats",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/something_strange_iwra2b.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 10
+						}
+					],
+					"level": "Beginner"
+				}
+			],
+			"recommendations":[
+				{
+					"id": 0,
+					"title": "Back stretch",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/back_stretch_lswsnf.jpg",
+					"sets": [
+						{
+							"name": "minutes",
+							"count": 5
+						}
+					],
+					"level": "Beginner"
+				},
+				{
+					"id": 1,
+					"title": "Lunge",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/lunge_yy59vv.jpg",
+					"sets": [
+						{
+							"name": "minutes",
+							"count": 10
+						}
+					],
+					"level": "Beginner"
+				},
+				{
+					"id": 2,
+					"title": "Plank",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
+					"sets": [
+						{
+							"name": "minute",
+							"count": 1
+						}
+					],
+					"level": "Beginner"
+				}
+			],
+			"collections":[
+				{
+					"id": 0,
+					"title": "Barbell bench press",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 10
+						}
+					],
+					"level": "Upper intermediate"
+				},
+				{
+					"id": 1,
+					"title": "Pull ups",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/pull-ups_un1wsu.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 10
+						}
+					],
+					"level": "Intermediate"
+				},
+				{
+					"id": 2,
+					"title": "Push-ups on the uneven bars",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 10
+						}
+					],
+					"level": "Intermediate"
+				}
+			],
+			"saved":[
+				{
+					"id": 0,
+					"title": "Barbell bench press",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/barbell_bench_press_a78goj.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 10
+						}
+					],
+					"level": "Intermediate",
+					"equipment": "equipment",
+					"intensity": "intensity"
+				},
+				{
+					"id": 1,
+					"title": "Squats",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
+					"sets": [
+						{
+							"name": "times",
+							"count": 15
+						}
+					],
+					"level": "Beginner",
+					"equipment": "equipment",
+					"intensity": "intensity"
+				},
+				{
+					"id": 2,
+					"title": "Plank",
+					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
+					"sets": [
+						{
+							"name": "minute",
+							"count": 1
+						}
+					],
+					"level": "Beginner",
+					"equipment": "equipment",
+					"intensity": "intensity"
+				}
+			]
 		}
-	  ],
-	  "comments": [
-		{
-		  "id": 1,
-		  "body": "some comment",
-		  "postId": 1
-		},
-		{
-		  "id": 2,
-		  "body": "some comment",
-		  "postId": 1
-		}
-	  ],
-	  "profile": {
+	],
+	"profile": {
 		"name": "typicode"
-	  },
-	  "accessToken": {
-		  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im1ha3NpbSIsImlhdCI6MTUxNjIzOTAyMn0.l2cD_MXWcXpoQyLMdbaOoiQ4pCOxIYcBAtRVz2u7uqk"
-	  }
+	},
+	"accessToken": {
+		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im1ha3NpbSIsImlhdCI6MTUxNjIzOTAyMn0.l2cD_MXWcXpoQyLMdbaOoiQ4pCOxIYcBAtRVz2u7uqk"
+	}
 }
