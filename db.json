@@ -1,0 +1,938 @@
+{
+	"info": {
+		"_postman_id": "f105cd1f-9cc2-47e2-8e76-533f65c5f581",
+		"name": "Workout",
+		"description": "Before you start, note that this documentation is an example of an API-first approach. Use this example as a guide to develop your own APIs.\n\n> **The Workout API is not a real API.**\n\nWorkout is the name of an example app that recommends exercises to complete throughout your day. \n\nThe Workout API shows the methods you need to create and view an exercise for an imaginary app's users.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get started",
+			"item": [
+				{
+					"name": "Generate access token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad885955-a870-44a1-9203-265d72ad4e8a",
+								"type": "text/javascript",
+								"exec": [
+									"// parse the response to retrieve the access token",
+									"let response = pm.response.json();",
+									"let accessToken = response.access_token;",
+									"",
+									"// set the access token returned in the response as an environment variable to be used in other requests",
+									"pm.environment.set(\"access_token\", accessToken);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"description": "Required; the `client_id` is obtained during application registration",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"description": "Required; the `client_secret` is obtained during application registration",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "public",
+									"description": "Optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/oauth2/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						},
+						"description": "To use the Workout API, your app must send an OAuth2 access token in an Authorization header with each request. \n\n1. Provide your `client_id` and `client_secret` to make a `POST` request to `https://api.workout.com/v1/oauth2/token`.\n2. A successful response will include the access token that should be included as an Authorization header to authorize all subsequent requests to the Workout API."
+					},
+					"response": [
+						{
+							"name": "Generate access token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "client_id",
+											"value": "{{your-client-id}}",
+											"description": "Required; the `client_id` is obtained during application registration",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{your-client-secret}}",
+											"description": "Required; the `client_secret` is obtained during application registration",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"description": "Optional",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "public",
+											"description": "Optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/oauth2/token",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"access_token\": \"C443298LsScW8grhoWp24a0dhnjkr\",\n  \"status\": \"active\",\n  \"created_date\": \"July 19th 2018, 11:51:24 pm\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an exercise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"snacks\",\n    \"description\": \"intake a light meal, eaten in between regular meals\",\n    \"muscles_worked\": [\n        \"biceps\",\n        \"abs\"\n    ],\n    \"difficulty\": \"advanced\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/exercises",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises"
+							]
+						},
+						"description": "A `POST` to the `/exercises` endpoint allows your application to create a new exercise. A successful response will contain an object with the `exercise_id`."
+					},
+					"response": [
+						{
+							"name": "Exercise created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"status\": \"created\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update an exercise",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"exercise_id\": \"403829\",\n    \"description\": \"starting in plank position, raising and lowering the body using the arms\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/exercises/:exerciseId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises",
+								":exerciseId"
+							],
+							"variable": [
+								{
+									"key": "exerciseId",
+									"value": ""
+								}
+							]
+						},
+						"description": "A `PUT` to the `/exercises/:exercise_id` endpoint allows your application to update an existing exercise."
+					},
+					"response": [
+						{
+							"name": "Exercise updated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises/:exerciseId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises",
+										":exerciseId"
+									],
+									"variable": [
+										{
+											"key": "exerciseId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"status\": \"updated\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "This folder contains an example workflow for a user just getting started.\n\nExecute these requests in sequence to generate an access token, and then use the access token to add a new exercise and update the exercise.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cfd682a2-eacd-4d22-a4f9-54ee9c3bb975",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c571038-dcca-4495-bdf3-a14a06097975",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Exercises",
+			"item": [
+				{
+					"name": "Get all exercises",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/exercises",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises"
+							]
+						},
+						"description": "A `GET` to the `/exercises` endpoint allows your application to retrieve a list of all the details."
+					},
+					"response": [
+						{
+							"name": "Get all exercises",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"name\": \"pushups\",\n        \"description\": \"raising and lowering the body using the arms\",\n        \"muscles_worked\": [\n            \"pectorals\",\n            \"triceps\",\n            \"anterior deltoids\"\n        ],\n        \"difficulty\": \"intermediate\"\n    },\n    {\n        \"exercise_id\": \"403830\",\n        \"name\": \"burpees\",\n        \"description\": \"stand, move into a squat position with your hands on the ground, kick your feet back into a plank position, return your feet into squat position, stand up\",\n        \"muscles_worked\": [\n            \"arms\",\n            \"legs\",\n            \"abs\"\n        ],\n        \"difficulty\": \"intermediate\"\n    },\n    {\n        \"exercise_id\": \"403831\",\n        \"name\": \"arm circles\",\n        \"description\": \"extend your arms straight out by the sides, make circles of about 1 foot in diameter with each outstretched arm\",\n        \"muscles_worked\": [\n            \"triceps\",\n            \"biceps\",\n            \"shoulders\"\n        ],\n        \"difficulty\": \"beginner\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get exercise details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/exercises/:exerciseId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises",
+								":exerciseId"
+							],
+							"variable": [
+								{
+									"key": "exerciseId",
+									"value": ""
+								}
+							]
+						},
+						"description": "A `GET` to the `/exercises/:exerciseId` endpoint allows your application to retrieve details about the specified exercise."
+					},
+					"response": [
+						{
+							"name": "Get exercise details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises/:exercise-id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises",
+										":exercise-id"
+									],
+									"variable": [
+										{
+											"key": "exercise-id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"name\": \"pushups\",\n        \"description\": \"raising and lowering the body using the arms\",\n        \"muscles_worked\": [\n            \"pectorals\",\n            \"triceps\",\n            \"anterior deltoids\"\n        ],\n        \"difficulty\": \"intermediate\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add an exercise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"exercises\",\n    \"description\": \"raising and lowering the body using the arms\",\n    \"muscles_worked\": [\n        \"pectorals\",\n        \"triceps\",\n        \"anterior deltoids\"\n    ],\n    \"difficulty\": \"intermediate\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/exercises",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises"
+							]
+						},
+						"description": "A `POST` to the `/exercises` endpoint allows your application to create a new exercise."
+					},
+					"response": [
+						{
+							"name": "Exercise created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"status\": \"created\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update an exercise",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"exercise_id\": \"403829\",\n    \"description\": \"raising and lowering the body using the arms\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/exercises/:exerciseId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises",
+								":exerciseId"
+							],
+							"variable": [
+								{
+									"key": "exerciseId",
+									"value": ""
+								}
+							]
+						},
+						"description": "A `PUT` to the `/exercises/:exercise_id` endpoint allows your application to update an existing exercise."
+					},
+					"response": [
+						{
+							"name": "Exercise updated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises/:exerciseId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises",
+										":exerciseId"
+									],
+									"variable": [
+										{
+											"key": "exerciseId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"status\": \"updated\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete an exercise",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"exercise_id\": \"403829\",\n    \"description\": \"raising and lowering the body using the arms\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/exercises/:exerciseId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exercises",
+								":exerciseId"
+							],
+							"variable": [
+								{
+									"key": "exerciseId",
+									"value": ""
+								}
+							]
+						},
+						"description": "A `DELETE` to the `/exercises/:exercise_id` endpoint allows your application to delete an existing exercise."
+					},
+					"response": [
+						{
+							"name": "Exercise deleted",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/exercises/:exerciseId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"exercises",
+										":exerciseId"
+									],
+									"variable": [
+										{
+											"key": "exerciseId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n        \"exercise_id\": \"403829\",\n        \"status\": \"deleted\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "This folder contains available requests for the `/exercises` endpoint.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5fba3a7e-73cb-4f55-bcb5-cb02a32234e7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "35650d81-d176-4076-a2ef-4671c15063e0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Generate access token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdb64cc5-fa66-47d9-8b86-f88ab013d256",
+								"type": "text/javascript",
+								"exec": [
+									"// parse the response to retrieve the access token",
+									"let response = pm.response.json();",
+									"let accessToken = response.access_token;",
+									"",
+									"// set the access token returned in the response as an environment variable to be used in other requests",
+									"pm.environment.set(\"access_token\", accessToken);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"description": "Required; the `client_id` is obtained during application registration",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"description": "Required; the `client_secret` is obtained during application registration",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "public",
+									"description": "Optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/oauth2/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						},
+						"description": "To use the Workout API, your app must send an OAuth2 access token in an Authorization header with each request. \n\n1. Provide your `client_id` and `client_secret` to make a `POST` request to `https://api.workout.com/v1/oauth2/token`.\n2. A successful response will include the access token that should be included as an Authorization header to authorize all subsequent requests to the Workout API."
+					},
+					"response": [
+						{
+							"name": "Generate access token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "client_id",
+											"value": "{{your-client-id}}",
+											"description": "Required; the `client_id` is obtained during application registration",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{your-client-secret}}",
+											"description": "Required; the `client_secret` is obtained during application registration",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"description": "Optional",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "public",
+											"description": "Optional",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/oauth2/token",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"access_token\": \"C443298LsScW8grhoWp24a0dhnjkr\",\n  \"status\": \"active\",\n  \"created_date\": \"July 19th 2018, 11:51:24 pm\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Exercise history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/account/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"account",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						},
+						"description": "A `GET` to the `/account/:userId` endpoint returns a list of past exercises recommended for an authenticated user."
+					},
+					"response": [
+						{
+							"name": "Get exercise history",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/account/:userId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"account",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n      \"user_id\": \"39\"\n        \"exercise_id\": \"403829\",\n        \"name\": \"pushups\",\n        \"data_recommended\": \"July 19th 2018, 11:51:24 pm\"\n    },\n    {\n      \"user_id\": \"39\"\n        \"exercise_id\": \"403830\",\n        \"name\": \"burpees\",\n        \"data_recommended\": \"July 19th 2018, 12:15:49 pm\"\n    },\n    {\n      \"user_id\": \"39\"\n        \"exercise_id\": \"403831\",\n        \"name\": \"arm circles\",\n        \"data_recommended\": \"July 19th 2018, 12:18:13 pm\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": " This folder contains available requests for the `/account` endpoint.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a427b546-60cd-4844-bb5d-6ef9c0ac7c2f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "315b42dd-b435-4498-a30c-fc10fae821e1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b21d9c0f-c43c-4ea4-bfc5-8da9991dc127",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d0d5f3bd-079e-45be-8b96-980b6b4e7dcb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
