@@ -127,6 +127,15 @@
 			"intensity": "intensity"
 		}
 	],
+	"inbox":[
+		{
+			"id": 0,
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/barbell_bench_press_a78goj.jpg",
+			"title": "Wellness Advice at Your Fingertips",
+			"description": "Access tips from Nike extends on training, nutrition, mindset, recovery and sleep, to create your own custom wellness journey.",
+			"date": "24-05-2021"
+		}
+	],
 	"profile": {
 		"name": "MaksimMarkevichCoherent"
 	}
