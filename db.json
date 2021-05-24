@@ -1,134 +1,130 @@
 {
-	"workouts":[
+	"new":[
 		{
-			"new":[
-				{
-					"id": 0,
-					"title": "Push ups",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445307/Workouts/push_ups_ti60rd.jpg",
-					"name": "times",
-					"count": 15,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 1,
-					"title": "Squats",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
-					"name": "times",
-					"count": 70,
-					"level": "Intermediate",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 2,
-					"title": "Stretching/Squats",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/something_strange_iwra2b.jpg",
-					"name": "times",
-					"count": 10,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				}
-			],
-			"recommendations":[
-				{
-					"id": 0,
-					"title": "Back stretch",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/back_stretch_lswsnf.jpg",
-					"name": "minutes",
-					"count": 5,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 1,
-					"title": "Lunge",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/lunge_yy59vv.jpg",
-					"name": "minutes",
-					"count": 10,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 2,
-					"title": "Plank",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
-					"name": "minute",
-					"count": 1,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				}
-			],
-			"collections":[
-				{
-					"id": 0,
-					"title": "Barbell bench press",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
-					"name": "times",
-					"count": 10,
-					"level": "Upper intermediate",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 1,
-					"title": "Pull ups",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/pull-ups_un1wsu.jpg",
-					"name": "times",
-					"count": 10,
-					"level": "Intermediate",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 2,
-					"title": "Push-ups on the uneven bars",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
-					"name": "times",
-					"count": 10,
-					"level": "Intermediate",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				}
-			],
-			"saved":[
-				{
-					"id": 0,
-					"title": "Barbell bench press",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/barbell_bench_press_a78goj.jpg",
-					"name": "times",
-					"count": 10,
-					"level": "Intermediate",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 1,
-					"title": "Squats",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
-					"name": "times",
-					"count": 15,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				},
-				{
-					"id": 2,
-					"title": "Plank",
-					"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
-					"name": "minute",
-					"count": 1,
-					"level": "Beginner",
-					"equipment": "equipment",
-					"intensity": "intensity"
-				}
-			]
+			"id": 0,
+			"title": "Push ups",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445307/Workouts/push_ups_ti60rd.jpg",
+			"name": "times",
+			"count": 15,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 1,
+			"title": "Squats",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
+			"name": "times",
+			"count": 70,
+			"level": "Intermediate",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 2,
+			"title": "Stretching/Squats",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/something_strange_iwra2b.jpg",
+			"name": "times",
+			"count": 10,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		}
+	],
+	"recommendations":[
+		{
+			"id": 0,
+			"title": "Back stretch",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/back_stretch_lswsnf.jpg",
+			"name": "minutes",
+			"count": 5,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 1,
+			"title": "Lunge",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/lunge_yy59vv.jpg",
+			"name": "minutes",
+			"count": 10,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 2,
+			"title": "Plank",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
+			"name": "minute",
+			"count": 1,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		}
+	],
+	"collections":[
+		{
+			"id": 0,
+			"title": "Barbell bench press",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
+			"name": "times",
+			"count": 10,
+			"level": "Upper intermediate",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 1,
+			"title": "Pull ups",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/pull-ups_un1wsu.jpg",
+			"name": "times",
+			"count": 10,
+			"level": "Intermediate",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 2,
+			"title": "Push-ups on the uneven bars",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/push-ups_on_the_uneven_bars_nz28dz.jpg",
+			"name": "times",
+			"count": 10,
+			"level": "Intermediate",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		}
+	],
+	"saved":[
+		{
+			"id": 0,
+			"title": "Barbell bench press",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/barbell_bench_press_a78goj.jpg",
+			"name": "times",
+			"count": 10,
+			"level": "Intermediate",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 1,
+			"title": "Squats",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445306/Workouts/squats_aja6ec.jpg",
+			"name": "times",
+			"count": 15,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
+		},
+		{
+			"id": 2,
+			"title": "Plank",
+			"image": "https://res.cloudinary.com/dathcmhvm/image/upload/v1619445305/Workouts/plank_acfmg9.jpg",
+			"name": "minute",
+			"count": 1,
+			"level": "Beginner",
+			"equipment": "equipment",
+			"intensity": "intensity"
 		}
 	],
 	"inbox":[
